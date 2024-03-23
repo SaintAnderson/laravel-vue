@@ -13,7 +13,10 @@ class CategoryController extends Controller
 
     public function create_category(Request $request)
     {
-        return view('category.create');
+        $category = Category::all();
+        return view('category.create',[
+            'category' => $category,
+        ]);
     }
 
     public function create(Request $request)

@@ -12,15 +12,19 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <div class="container-fluid">
-        {{--        <a class="navbar-brand h1" href={{ route('posts.index') }}>CRUDPosts</a>--}}
-        <div class="justify-end ">
-            <div class="col ">
-                {{--                <a class="btn btn-sm btn-success" href={{ route('posts.create') }}>Add Post</a>--}}
-            </div>
-        </div>
-</nav>
+@if (Route::has('login'))
+    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10" align="center">
+        @auth
+            <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+        @else
+            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+            @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+            @endif
+        @endauth
+    </div>
+@endif
 
 <div class="container h-100 mt-5">
     <div class="row h-100 justify-content-center align-items-center">
@@ -29,6 +33,15 @@
             <form action="{{ route('category.create') }}" method="post">
                 @csrf
                 <div class="form-group">
+                    <label for="title">Выберите родительскую категорию</label>
+                    <div class="form-group">
+                        <select name="parent_id">
+                            <option value="null">Без категории</option>
+                            @foreach ($category as $cat)
+                                <option value="{{ $cat->id  }}">{{$cat->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <label for="title">Наименование</label>
                     <input type="text" class="form-control" id="title" name="name" required>
                 </div>

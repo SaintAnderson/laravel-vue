@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -28,11 +29,28 @@ class Product extends Model
     }
 
 
+//    /**
+//     * @return BelongsToMany
+//     */
+//    public function specifications(): BelongsToMany
+//    {
+//        return $this->belongsToMany(Specification::class, 'specification_product')->withPivot('value');
+//    }
     /**
      * @return BelongsToMany
      */
-    public function specifications(): BelongsToMany
+//    public function specification(): BelongsToMany
+//    {
+//        return $this->belongsToMany(Measure::class, 'specification_product');
+//        //        return $this->belongsToMany(Measure::class, 'specification_product')->withPivot('value');
+//    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function specification(): BelongsToMany
     {
-        return $this->belongsToMany(Specification::class, 'specification_product')->withPivot('value');
+        return $this->belongsToMany(Measure::class, 'specification_product')->withPivot('value');
+        //        return $this->belongsToMany(Measure::class, 'specification_product')->withPivot('value');
     }
 }

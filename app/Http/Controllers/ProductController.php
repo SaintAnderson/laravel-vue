@@ -41,16 +41,13 @@ class ProductController extends Controller
         return redirect('show');
 
     }
-    public function show()
-    {
-        $products = Product::all();
-        $categories = [
-            ['name' => 'Тестовая 1',],
-            ['name' => 'Тестовая 2',],
-            ['name' => 'Тестовая 3',],
-        ];
-        return view('show', compact('products', 'categories'));
-
-    }
+//    public function show()
+//    {
+//        $products = Product::all();
+//        $specifications = $products->products_spesification;
+//        var_dump($specifications);
+//        return view('show', compact('products', 'specifications'));
+//
+//    }
 
 }
