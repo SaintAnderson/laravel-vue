@@ -12,39 +12,43 @@
 </head>
 
 <body>
-@if (Route::has('login'))
-    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10" align="center">
-        @auth
-            <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-        @else
-            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-            @endif
-        @endauth
-    </div>
-@endif
-<div class="container h-100 mt-5">
+<div class="container h-100">
+
     <div class="row h-100 justify-content-center align-items-center">
+
         <div class="col-10 col-md-8 col-lg-6">
-            <br>
-            <br>
-            <a class="btn btn-success" href="{{ url('/create_category') }}">Добавить категорию</a>
-            <a class="btn btn-success" href="{{ url('/create_specification') }}">Добавить спецификацию</a>
-            <br>
-            <br>
+            @if (Route::has('login'))
+                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10 mt-5 mb-5">
+                    @auth
+                        <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+                    @else
+                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+            <div class="d-flex justify-content-between mb-2">
+            <a class="btn btn-success" href="{{ url('/create') }}">Создать новое изделие</a>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+            <a class="btn btn-success" href="{{ url('/create_category') }}">Добавить новую категорию</a>
+            <a class="btn btn-success" href="{{ url('/create_specification') }}">Добавить новую  спецификацию</a>
+            </div>
             <h3>Категории</h3>
             @foreach ($categories as $category)
                 @if($type == 'category')
                     <div class="row">
-                        <a href="{{ url('/catalog/' . $category->id) }}">{{ $category->name }}</a>
+                        <a class="h5 text-decoration-none" href="{{ url('/catalog/' . $category->id) }}">{{ $category->name }}</a>
                     </div>
                 @endif
 
                     @if($type == 'subcategory')
                         <div class="row">
-                            <a href="{{ url('/products/' . $category->id) }}">{{ $category->name }}</a>
+                            <a class="h5 text-decoration-none" href="{{ url('/products/' . $category->id) }}">{{ $category->name }}</a>
                         </div>
                     @endif
 

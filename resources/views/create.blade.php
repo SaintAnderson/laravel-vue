@@ -33,6 +33,15 @@
             <form action="{{ route('product.add') }}" method="post">
                 @csrf
                 <div class="form-group">
+                    <label for="title">Выберите родительскую категорию</label>
+                    <div class="form-group">
+                        <select name="parent_id">
+                            <option value="null">Без категории</option>
+                            @foreach ($category as $cat)
+                                <option value="{{ $cat->id  }}">{{$cat->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <label for="title">Наименование</label>
                     <input type="text" class="form-control" id="title" name="name" required>
                 </div>

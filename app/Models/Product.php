@@ -18,10 +18,7 @@ class Product extends Model
         'name',
     ];
 
-//    public function categories(): BelongsToMany
-//    {
-//       return $this->belongsToMany(Category::class, 'categories');
-//    }
+
 
     public function categories() : BelongsToMany
     {
@@ -29,13 +26,7 @@ class Product extends Model
     }
 
 
-//    /**
-//     * @return BelongsToMany
-//     */
-//    public function specifications(): BelongsToMany
-//    {
-//        return $this->belongsToMany(Specification::class, 'specification_product')->withPivot('value');
-//    }
+
     /**
      * @return BelongsToMany
      */
