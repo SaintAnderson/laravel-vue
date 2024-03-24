@@ -26,8 +26,8 @@ class ProductController extends Controller
         $productCategory->product_id = $product->id;
         $productCategory->category_id = $request->parent_id;
         $productCategory->save();
-        return redirect()->route('create')
-            ->with('success','Post created successfully.');
+        return redirect()->route('main');
+
     }
 
     public function update(Request $request, $id = null)

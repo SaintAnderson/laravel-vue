@@ -42,7 +42,7 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/show', [ProductController::class, 'show'])->name('show');
-Route::get('/', function () { return view('welcome');});
+Route::get('/', [CategoryController::class,'allCategory'])->name('main');  ;
 
 Route::get('/create', [ProductController::class, 'create_product'] )->name('create');
 Route::post('/product', [ProductController::class, 'add'])->name('product.add');

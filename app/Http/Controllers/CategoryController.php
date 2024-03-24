@@ -26,6 +26,7 @@ class CategoryController extends Controller
         ]);
 
         Category::create($request->all());
+        return redirect()->route('main');
 
     }
     public function catch_id(Request $request, $id = null)
@@ -42,6 +43,7 @@ class CategoryController extends Controller
     public function catch_category_to_product(Request $request)
     {
         ProductCategory::create($request->all());
+        return redirect()->route('main');
     }
     public function allCategory()
     {

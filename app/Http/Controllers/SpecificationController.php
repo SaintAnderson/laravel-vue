@@ -22,6 +22,7 @@ class SpecificationController extends Controller
         ]);
 
         Measure::create($request->all());
+        return redirect()->route('main');
 
     }
     public function catch_id(Request $request, $id = null)
@@ -40,6 +41,7 @@ class SpecificationController extends Controller
         $product = new ProductSpecification($request->all());
         $product->product_id = $id;
         $product->save();
+        return redirect()->route('show');
 
     }
 

@@ -6,3 +6,5 @@
 -в env файле прописать подключение к своей базе данных
 -php artisan migrate
 -php artisan db:seed
+-php artisan serve
+-php nmp dev
