@@ -54,20 +54,12 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function subcategories($id)
-    {
-        $categories = Category::find($id);
-        return view('catalog', [
-            'categories' => $categories->subcategories,
-            'type' => 'subcategory'
-        ]);
-    }
-
-    public function products($id)
+    public function category($id)
     {
         $category = Category::find($id);
         return view('show', [
             'products' => $category->products,
+            'categoryId' => $id,
         ]);
     }
 }

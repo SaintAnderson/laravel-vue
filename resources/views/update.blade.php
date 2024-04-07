@@ -7,19 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Posts</title>
+    <title>Обновление</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <div class="container-fluid">
-{{--        <a class="navbar-brand h1" href={{ route('posts.index') }}>CRUDPosts</a>--}}
-        <div class="justify-end ">
-            <div class="col ">
-{{--                <a class="btn btn-sm btn-success" href={{ route('posts.create') }}>Add Post</a>--}}
-            </div>
-        </div>
-    </div>
-</nav>
 <div class="container h-100 mt-5">
     <div class="row h-100 justify-content-center align-items-center">
         <div class="col-10 col-md-8 col-lg-6">
@@ -27,7 +17,7 @@
             <form action="{{ route('update') }}" method="post">
                 @csrf
                 <div class="form-group">
-                    <label for="title">Title</label>
+                    <label for="title">Введите новое наименование</label>
                     <input type="hidden" name="id" value="{{ $product->id }}">
                     <input type="text" class="form-control" id="title" name="name"
                            value="{{ $product->name }}" required>

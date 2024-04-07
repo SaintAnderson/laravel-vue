@@ -10,6 +10,12 @@ class ProductController extends Controller
 {
 
 
+    public function show()
+    {
+        $product = Product::all();
+        return view('show', compact('product'));
+    }
+
     public function create_product()
     {
         $category = Category::all();
@@ -46,12 +52,11 @@ class ProductController extends Controller
 
     }
 
-    public function remove($id)
+    public function remove($id, $categoryId)
     {
         $product = Product::find($id);
         $product->delete();
-        return redirect('show');
-
+        return redirect('category/' . $categoryId);
     }
 
 

@@ -17,9 +17,9 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        $products = ['Ноутбук','Смартфон'];
         return [
-            'name' => $this->faker->sentence(),
-            //'category_id' =>Category::inRandomOrder()->first()->getKey(),
+            'name' => $this->faker->randomElement($products),
         ];
     }
 }

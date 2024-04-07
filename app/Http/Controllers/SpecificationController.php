@@ -41,8 +41,6 @@ class SpecificationController extends Controller
         $product = new ProductSpecification($request->all());
         $product->product_id = $id;
         $product->save();
-        return redirect()->route('show');
-
     }
 
 }

@@ -45,7 +45,7 @@
                 {{ $message }}
                 @enderror
                 <br>
-                <button type="submit" class="btn btn-primary">Создать</button>
+                <button type="submit" class="btn btn-primary">Добавить</button>
             </form>
         </div>
     </div>

@@ -18,10 +18,10 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         {
+            $categeroies = ['Ноутбуки','Смартфоны','Холодильники','Телевизоры'];
 
             return [
-                'parent_id' => $this->faker->randomElement(array_merge([null])),
-                'name' => $this->faker->sentence,
+                'name' => $this->faker->randomElement($categeroies)
             ];
         }
     }
