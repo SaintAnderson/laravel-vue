@@ -16,7 +16,7 @@
     <div class="row h-100 justify-content-center align-items-center">
         <div class="col-10 col-md-8 col-lg-6">
             <h3>Присвоение спецификации</h3>
-            <form action="{{ route('specproduct', ['id' => $product->id]) }}" method="post">
+            <form action="{{ url('specification_product/'. $product->id. '/' . $categoryId) }}" method="post">
                 @csrf
                 <input type="hidden" name="product_id" value="{{ $product->id}}">
                 <div class="form-group">

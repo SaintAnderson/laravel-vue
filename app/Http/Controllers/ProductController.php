@@ -36,20 +36,19 @@ class ProductController extends Controller
 
     }
 
-    public function update(Request $request, $id = null)
+
+    public function update(Request $request, $id , $categoryId)
     {
-        if ($id) {
             $product = Product::find($id);
-            return view('update', compact('product'));
-        }
+            return view('update', compact('product','categoryId'));
+    }
 
-        if ($request->method() == Request::METHOD_POST) {
-            $product = Product::find($request->get('id'));
-            $product->update($request->all());
+    public function update_product(Request $request, $categoryId)
+    {
+        $product = Product::find($request->get('id'));
+        $product->update($request->all());
 
-            return redirect('show');
-        }
-
+        return redirect('category/' . $categoryId);
     }
 
     public function remove($id, $categoryId)

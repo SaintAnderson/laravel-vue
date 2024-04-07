@@ -25,22 +25,24 @@ class SpecificationController extends Controller
         return redirect()->route('main');
 
     }
-    public function catch_id(Request $request, $id = null)
+    public function catch_id(Request $request, $id = null, $categoryId)
     {
         $product = Product::find($id);
         $measuries = Measure::all();
         return view('specification.create_id', [
             'product' => $product,
             'measuries' => $measuries,
+            'categoryId' => $categoryId,
         ]);
 
     }
 
-    public function catch_specification_to_product(Request $request, int $id)
+    public function catch_specification_to_product(Request $request, int $id,$categoryId)
     {
         $product = new ProductSpecification($request->all());
         $product->product_id = $id;
         $product->save();
+        return redirect('category/' . $categoryId);
     }
 
 }

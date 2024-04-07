@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
     <div class="row h-100 justify-content-center align-items-center">
         <div class="col-10 col-md-8 col-lg-6">
             <h3>Изменить имя изделия</h3>
-            <form action="{{ route('update') }}" method="post">
+            <form action="{{ url('update'.'/'.$categoryId) }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="title">Введите новое наименование</label>

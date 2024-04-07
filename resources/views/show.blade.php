@@ -28,10 +28,10 @@
                             <a class="btn btn-success rounded-0 text-nowrap w-100" href="{{ url('/create_category/'.$product->id) }}">Добавить категорию</a>
                         </div>
                         <div>
-                            <a class="btn btn-success rounded-0 text-nowrap w-100" href="{{ url('/create_specification/' . $product->id) }}">Добавить спецификацию</a>
+                            <a class="btn btn-success rounded-0 text-nowrap w-100" href="{{ url('/create_specification/' . $product->id. '/' . $categoryId) }}">Добавить спецификацию</a>
                         </div>
                         <div>
-                            <a class="btn btn-success rounded-0 text-nowrap w-100" href="{{ url('update/' . $product->id) }}">Редактировать</a>
+                            <a class="btn btn-success rounded-0 text-nowrap w-100" href="{{ url('update/' . $product->id. '/' . $categoryId) }}">Редактировать</a>
                         </div>
                         <div>
                             <a class="btn btn-danger rounded-0 text-nowrap w-100" href="{{ url('delete/' . $product->id . '/' . $categoryId) }}">Удалить</a>
